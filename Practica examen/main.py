@@ -5,12 +5,13 @@ opcion_main_menu=0
 opcion_add=0
 opcion_modify=0
 opcion_remove=0
-#Empieza el programa
+#Proceso de login
 while func.login==False:
     print("Bienvenid@!")
     inputusuario=input("Ingrese su usuario: ")
     inputcontraseña=input("Ingrese su contraseña: ")
     func.login(inputusuario,inputcontraseña)
+#Empieza el programa
 while opcion_main_menu!=5:
     func.menu()
     try:
