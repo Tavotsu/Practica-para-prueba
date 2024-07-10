@@ -14,9 +14,9 @@ inventario={}
 
 #Proceso de login
 while func.login==False:
-    print("Bienvenid@!")
-    inputusuario=input("Ingrese su usuario: ")
-    inputcontraseña=input("Ingrese su contraseña: ")
+    print("Bienvenid@!");
+    inputusuario=input("Ingrese su usuario: ");
+    inputcontraseña=input("Ingrese su contraseña: ");
     func.login(inputusuario,inputcontraseña)
 #Carga el archivo csv
 func.cargar_archivo_csv()
@@ -24,29 +24,19 @@ func.cargar_archivo_csv()
 while opcion_main_menu!=5:
     func.menu()
     try:
-        opcion_main_menu=int(input("Ingrese una opcion: "))
+        opcion_main_menu=int(input("Ingrese una opcion: "));
     except:
-        print("\nIngrese una opcion valida.")
+        print("\nIngrese una opcion valida.");
     else:
         if opcion_main_menu==1:
-            print('============\nAgregar productos\n============')
-            while True:
-                try:
-                    codigoprod=int(input("Ingrese el codigo del producto: "))
-                except:
-                    print("\nIngrese una opcion valida.")
-                if codigoprod==int:
-                    break
-                else:
-                    True
-            nombreprod=input('Ingrese el nombre del producto: ')
+            func.agregar_productos()
         elif opcion_main_menu==2:
-            print()
+            print();
         elif opcion_main_menu==3:
-            print()
+            print();
         elif opcion_main_menu==4:
-            print()
+            print();
         elif opcion_main_menu==5:
-            print()
+            print();
         else:
-            print("\nIngrese una opcion valida.")
+            print("\nIngrese una opcion valida.");
