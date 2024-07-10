@@ -15,3 +15,10 @@ def login(inputusuario, inputcontraseña):
 #Funcion para mostrar el menu al usuario
 def menu():
      print("==========================\nMenu\n==========================\n1.- Agregar producto\n2.- Modificar producto\n3.- Quitar producto\n4.- Guardar inventario en excel\n5.- Salir del programa\n")
+#Funcion para animacion de salida
+def animacionsalida():
+    print("Saliendo del programa",end='')
+    for i in range(3)
+        print('.',end='')
+        time.sleep(0.2)
+   
