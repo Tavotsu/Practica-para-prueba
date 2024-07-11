@@ -56,7 +56,7 @@ def agregar_productos():
     print('============\nAgregar productos\n============')
     
     producto = {}
-    
+    productos=[]
     # Código
     while True:
         try:
