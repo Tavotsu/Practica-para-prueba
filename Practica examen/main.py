@@ -11,13 +11,13 @@ lista_comida=[]
 lista_limpieza=[]
 inventario={}
 #Variables
-
+flag=False
 #Proceso de login
-while func.login==False:
+while flag==False:
     print("Bienvenid@!");
     inputusuario=input("Ingrese su usuario: ");
     inputcontraseña=input("Ingrese su contraseña: ");
-    func.login(inputusuario,inputcontraseña)
+    flag=func.login(inputusuario,inputcontraseña)
 #Empieza el programa
 while opcion_main_menu!=6:
     func.menu()
@@ -39,4 +39,4 @@ while opcion_main_menu!=6:
         elif opcion_main_menu==6:
             func.animacion_salida()
         else:
-            print("\nIngrese una opcion valida.");
+            print("\nIngrese una opcion valida.\n");
