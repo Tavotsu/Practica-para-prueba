@@ -17,13 +17,26 @@ def login(inputusuario, inputcontraseña):
      #Si no devuelve False
           return False
 #Funcion para precargar el archivo csv
-def cargar_archivo_csv():
+def crear_inventario():
      try:
           with open('inventario.csv',"w",newline='',encoding='UTF-8') as archivo_csv:
                escritor_csv=csv.writer(archivo_csv)
                escritor_csv.writerow(titulo)
      except:
           print("\nNo se ha podido crear el archivo de inventario, por favor reinicie el programa.");
+#Cargar inventario creado previamente
+def leer_inventario():
+     try:
+          with open('inventario.csv',"r",) as archivo_csv:
+               escritor_csv=csv.DictReader(archivo_csv)
+               for fila in escritor_csv:
+                    fcod=int(fila['Codigo'])
+                    fnom=fila['Nombre']
+                    fpre=int(fila['Precio'])
+                    fcan=int(fila['Cantidad'])
+                    print
+     except:
+          print("\nNo se ha podido leer el archivo de inventario.");
 #Funcion para mostrar el menu al usuario
 def menu():
      print("==========================\nMenu\n==========================\n1.- Agregar producto\n2.- Modificar producto\n3.- Quitar producto\n4.- Guardar inventario en excel\n5.- Salir del programa\n");
@@ -64,6 +77,11 @@ def agregar_productos():
                True
      print("Datos agregados correctamente.\n")
      return listaproducto
+#
+def modificar_producto():
+     for x in listaproducto:
+          print(listaproducto[x])
+     print("Elija una opcion para editar")
 #Funcion para animacion de ...
 def animacion_salida():
      print("Saliendo del programa",end='');
