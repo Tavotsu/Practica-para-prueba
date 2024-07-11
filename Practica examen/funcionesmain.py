@@ -1,4 +1,5 @@
 import time, datetime, csv
+productos={}
 #Credenciales de login
 logincredentials={"Gustavo": "G234",
                   "Javier":"12345",
@@ -30,6 +31,7 @@ def crear_inventario():
           with open('inventario.csv',"w",newline='',encoding='UTF-8') as archivo_csv:
                escritor_csv=csv.writer(archivo_csv)
                escritor_csv.writerow(titulo)
+               escritor_csv.writerows()
      except:
           print("\nNo se ha podido crear el archivo de inventario, por favor reinicie el programa.");
 #Cargar inventario creado previamente
@@ -51,37 +53,75 @@ def menu():
      print("\n==========================\nMenu\n==========================\n1.- Agregar producto\n2.- Modificar producto\n3.- Quitar producto\n4.- Guardar inventario en excel\n5.- Salir del programa\n");
 #Funcion para agregar productos al inventario
 def agregar_productos():
-     print('============\nAgregar productos\n============');
-     while True:
+    print('============\nAgregar productos\n============')
+    
+    producto = {}
+    
+    # Código
+    while True:
         try:
-               codigoprod = int(input("Ingrese el codigo del producto: "))
-               listaproducto.append(codigoprod)
-               break 
+            codigoprod = int(input("Ingrese el código del producto: "))
+            producto['codigo'] = codigoprod
+            break 
         except ValueError:  
-               print("\nIngrese una opcion valida.")
-     nombreprod=input('Ingrese el nombre del producto: ');
-     listaproducto.append(nombreprod)
-     while True:
+            print("\nIngrese una opción válida.")
+    
+    # Nombre
+    nombreprod = input('Ingrese el nombre del producto: ')
+    producto['nombre'] = nombreprod
+    
+    # Precio
+    while True:
         try:
-               precioprod = int(input("Ingrese el codigo del producto: "))
-               listaproducto.append(precioprod)
-               break 
+            precioprod = int(input("Ingrese el precio del producto: "))
+            producto['precio'] = precioprod
+            break 
         except ValueError:  
-               print("\nIngrese una opcion valida.")
-     while True:
+            print("\nIngrese una opción válida.")
+    
+    # Cantidad
+    while True:
         try:
-               cantprod = int(input("Ingrese el codigo del producto: "))
-               listaproducto.append(cantprod)
-               break 
+            cantprod = int(input("Ingrese la cantidad disponible del producto: "))
+            producto['cantidad'] = cantprod
+            break 
         except ValueError:  
-               print("\nIngrese una opcion valida.")
-     print("Datos agregados correctamente.\n")
-     return listaproducto
+            print("\nIngrese un valor válido.")
+    
+    productos.append(producto)
 #Funcion para modificar productos
 def modificar_producto():
-     for x in listaproducto:
-          print(listaproducto[x])
-     print("Elija una opcion para editar")
+    print("Lista de productos:")
+    for producto in productos:
+          print(f"Nombre: {producto['nombre']}")
+    try:
+          codigo = int(input("Ingrese el código del producto que desea modificar: "))
+    except:
+         print("\nIngrese un codigo válido.")
+    for producto in productos:
+        if producto['codigo'] == codigo:
+            nombre = input("Ingrese el nuevo nombre del producto (presione Enter para omitir): ")
+            if nombre:
+                producto['nombre'] = nombre
+            
+            precio = input("Ingrese el nuevo precio del producto (presione Enter para omitir): ")
+            if precio:
+                try:
+                    producto['precio'] = int(precio)
+                except ValueError:
+                    print("Precio no válido. Se mantiene el precio anterior.")
+            
+            cantidad = input("Ingrese la nueva cantidad del producto (presione Enter para omitir): ")
+            if cantidad:
+                try:
+                    producto['cantidad'] = int(cantidad)
+                except ValueError:
+                    print("Cantidad no válida. Se mantiene la cantidad anterior.")
+            
+            print("Producto modificado correctamente.")
+            break
+    else:
+        print("\nCódigo de producto no encontrado.")
 #Funcion para animacion de ...
 def animacion_salida():
      print("Saliendo del programa",end='');
