@@ -19,7 +19,7 @@ while func.login==False:
     inputcontraseña=input("Ingrese su contraseña: ");
     func.login(inputusuario,inputcontraseña)
 #Empieza el programa
-while opcion_main_menu!=5:
+while opcion_main_menu!=6:
     func.menu()
     try:
         opcion_main_menu=int(input("Ingrese una opcion: "));
@@ -31,11 +31,12 @@ while opcion_main_menu!=5:
         elif opcion_main_menu==2:
             func.modificar_producto()
         elif opcion_main_menu==3:
-            print();
+            func.quitar_producto()
         elif opcion_main_menu==4:
-            #Carga el archivo csv
             func.crear_inventario()
         elif opcion_main_menu==5:
+            func.leer_inventario()
+        elif opcion_main_menu==6:
             func.animacion_salida()
         else:
             print("\nIngrese una opcion valida.");

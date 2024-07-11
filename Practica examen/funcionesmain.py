@@ -29,12 +29,13 @@ def leer_inventario():
      try:
           with open('inventario.csv',"r",) as archivo_csv:
                escritor_csv=csv.DictReader(archivo_csv)
+               print('   Codigo   |   Nombre   |   Precio   |   Cantidad   ')
                for fila in escritor_csv:
                     fcod=int(fila['Codigo'])
                     fnom=fila['Nombre']
                     fpre=int(fila['Precio'])
                     fcan=int(fila['Cantidad'])
-                    print
+                    print(f"{fcod}  |  {fnom}  |  {fpre}  |  {fcan}")
      except:
           print("\nNo se ha podido leer el archivo de inventario.");
 #Funcion para mostrar el menu al usuario
@@ -77,7 +78,7 @@ def agregar_productos():
                True
      print("Datos agregados correctamente.\n")
      return listaproducto
-#
+#Funcion para modificar productos
 def modificar_producto():
      for x in listaproducto:
           print(listaproducto[x])
